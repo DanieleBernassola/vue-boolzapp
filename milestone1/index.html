@@ -13,7 +13,7 @@
 
     <body>
         <!-- SEZIONE PRINCIPALE -->
-        <div class="container d-flex">
+        <div class="container d-flex" id="app">
             <!-- COLONNA SINISTRA -->
             <div class="col-left" id="chats">
                 <!-- HEADER -->
@@ -47,108 +47,17 @@
                 <!-- CHAT RECENTI -->
                 <div class="recent-chats">
                     <ul>
-                        <!-- PRIMA CHAT -->
-                        <li class="recent-chat d-flex align-center space-around">
+                        <!-- TUTTE LE CHAT -->
+                        <li class="recent-chat d-flex align-center space-around" v-for="(contact, index) in contacts">
                             <div>
-                                <img class="avatar avatar-chats" src="./img/avatar_1.jpg" alt="avatar1">
+                                <img class="avatar avatar-chats" :src="contact.avatar" :alt="contact.name">
                             </div>
                             <div class="show-desk">
-                                <div class="chat-name">Michele</div>
-                                <p class="status">Lorem ipsum dolor sit amet</p>
+                                <div class="chat-name">{{ contact.name }}</div>
+                                <p class="status">{{ contact.messages[contact.messages.length - 1].message }}</p>
                             </div>
                             <div class="show-desk">
                                 <p class="time">16:15</p>
-                            </div>
-                        </li>
-                        <!-- SECONDA CHAT -->
-                        <li class="recent-chat d-flex align-center space-around">
-                            <div>
-                                <img class="avatar avatar-chats" src="./img/avatar_2.jpg" alt="avatar2">
-                            </div>
-                            <div class="show-desk">
-                                <div class="chat-name">Fabio</div>
-                                <p class="status">Lorem ipsum dolor sit amet</p>
-                            </div>
-                            <div class="show-desk">
-                                <p class="time">16:05</p>
-                            </div>
-                        </li>
-                        <!-- TERZA CHAT -->
-                        <li class="recent-chat d-flex align-center space-around">
-                            <div>
-                                <img class="avatar avatar-chats" src="./img/avatar_3.jpg" alt="avatar3">
-                            </div>
-                            <div class="show-desk">
-                                <div class="chat-name">Samuele</div>
-                                <p class="status">Lorem ipsum dolor sit amet</p>
-                            </div>
-                            <div class="show-desk">
-                                <p class="time">16:03</p>
-                            </div>
-                        </li>
-                        <!-- QUARTA CHAT -->
-                        <li class="recent-chat d-flex align-center space-around">
-                            <div>
-                                <img class="avatar avatar-chats" src="./img/avatar_4.jpg" alt="avatar4">
-                            </div>
-                            <div class="show-desk">
-                                <div class="chat-name">Alessandro B.</div>
-                                <p class="status">Lorem ipsum dolor sit amet</p>
-                            </div>
-                            <div class="show-desk">
-                                <p class="time">15:50</p>
-                            </div>
-                        </li>
-                        <!-- QUINTA CHAT -->
-                        <li class="recent-chat d-flex align-center space-around">
-                            <div>
-                                <img class="avatar avatar-chats" src="./img/avatar_5.jpg" alt="avatar5">
-                            </div>
-                            <div class="show-desk">
-                                <div class="chat-name">Alessandro L.</div>
-                                <p class="status">Lorem ipsum dolor sit amet</p>
-                            </div>
-                            <div class="show-desk">
-                                <p class="time">15:45</p>
-                            </div>
-                        </li>
-                        <!-- SESTA CHAT -->
-                        <li class="recent-chat d-flex align-center space-around">
-                            <div>
-                                <img class="avatar avatar-chats" src="./img/avatar_6.jpg" alt="avatar6">
-                            </div>
-                            <div class="show-desk">
-                                <div class="chat-name">Claudia</div>
-                                <p class="status">Lorem ipsum dolor sit amet</p>
-                            </div>
-                            <div class="show-desk">
-                                <p class="time">15:40</p>
-                            </div>
-                        </li>
-                        <!-- SETTIMA CHAT -->
-                        <li class="recent-chat d-flex align-center space-around">
-                            <div>
-                                <img class="avatar avatar-chats" src="./img/avatar_7.jpg" alt="avatar7">
-                            </div>
-                            <div class="show-desk">
-                                <div class="chat-name">Federico</div>
-                                <p class="status">Lorem ipsum dolor sit amet</p>
-                            </div>
-                            <div class="show-desk">
-                                <p class="time">15:22</p>
-                            </div>
-                        </li>
-                        <!-- OTTAVA CHAT -->
-                        <li class="recent-chat d-flex align-center space-around">
-                            <div>
-                                <img class="avatar avatar-chats" src="./img/avatar_8.jpg" alt="avatar8">
-                            </div>
-                            <div class="show-desk">
-                                <div class="chat-name">Davide</div>
-                                <p class="status">Lorem ipsum dolor sit amet</p>
-                            </div>
-                            <div class="show-desk">
-                                <p class="time">15:15</p>
                             </div>
                         </li>
                     </ul>
