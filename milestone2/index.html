@@ -48,7 +48,7 @@
                 <div class="recent-chats">
                     <ul>
                         <!-- TUTTE LE CHAT -->
-                        <li class="recent-chat d-flex align-center space-around" v-for="(contact, index) in contacts">
+                        <li class="recent-chat d-flex align-center space-around" v-for="contact in contacts">
                             <div>
                                 <img class="avatar avatar-chats" :src="contact.avatar" :alt="contact.name">
                             </div>
@@ -86,17 +86,17 @@
                 <!-- MESSAGGI -->
                 <div id="messages">
                     <ul>
-                        <li>
+                        <li v-for="mex in contacts[currentContact].messages">
                             <div class="message user-message">
                                 <div class="content">
                                     <p class="text-message">
-                                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. A cupiditate doloribus quasi maiores earum? Nulla deleniti doloribus praesentium ipsa aspernatur ut accusantium maiores vitae facilis. Reprehenderit omnis atque nisi provident!
+                                        {{ mex.message }}
                                     </p>
                                     <p class="time">16:13</p>
                                 </div>
                             </div>
                         </li>
-                        <li>
+                        <!-- <li>
                             <div class="message received-message">
                                 <div class="content">
                                     <p class="text-message">
@@ -105,7 +105,7 @@
                                     <p class="time">16:15</p>
                                 </div>
                             </div>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
                 <!-- FOOTER -->
