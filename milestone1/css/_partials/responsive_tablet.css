@@ -1,0 +1,39 @@
+/* min-width:576px */
+
+@media screen and (min-width: 576px) {
+    body{
+        font-size: var(--font-size-tablet);
+    }
+
+    .col-left{
+        flex-shrink: 0;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+    }
+
+    header{
+        flex-shrink: 0;
+    }
+
+    .chat-tools{
+        display: initial;
+    }
+
+    .show-tab{
+        display: initial;
+    }
+
+    .new-message input{
+        width: calc(100% - 10rem);
+    }
+
+    .show-desk{
+        display: none;
+    }
+
+    .recent-chats{
+        overflow-y: auto;
+        height: 100%;
+    }
+}
