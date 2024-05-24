@@ -48,7 +48,7 @@
                 <div class="recent-chats">
                     <ul>
                         <!-- TUTTE LE CHAT -->
-                        <li class="recent-chat d-flex align-center space-around" v-for="contact in contacts">
+                        <li class="recent-chat d-flex align-center space-around" v-for="(contact, index) in contacts" @click="selectContact(index)">
                             <div>
                                 <img class="avatar avatar-chats" :src="contact.avatar" :alt="contact.name">
                             </div>
@@ -70,10 +70,10 @@
                 <header>
                     <div class="chat-info d-flex align-center">
                         <div>
-                            <img class="avatar chat-avatar" src="./img/avatar_1.jpg" alt="avatar-selected"></img>
+                            <img class="avatar chat-avatar" :src="contacts[currentContact].avatar" alt="avatar-selected"></img>
                         </div>
                         <div>
-                            <div class="chat-name">Michele</div>
+                            <div class="chat-name">{{ contacts[currentContact].name }}</div>
                             <p class="status">Ultimo accesso oggi alle 16:26</p>
                         </div>
                     </div>
@@ -87,7 +87,7 @@
                 <div id="messages">
                     <ul>
                         <li v-for="mex in contacts[currentContact].messages">
-                            <div class="message user-message">
+                            <div class="message" :class="{'user-message': mex.status === 'sent', 'received-message': mex.status === 'received'}">
                                 <div class="content">
                                     <p class="text-message">
                                         {{ mex.message }}

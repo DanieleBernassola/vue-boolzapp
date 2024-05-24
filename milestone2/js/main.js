@@ -169,4 +169,11 @@ createApp({
       ],
     };
   },
+  methods: {
+    selectContact(index) {
+      this.currentContact = index;
+      // console.log(this.currentContact);
+      // console.log(this.contacts[this.currentContact]);
+    },
+  },
 }).mount("#app");
