@@ -5,6 +5,7 @@ createApp({
     return {
       currentContact: 0,
       newMessage: null,
+      searchContact: null,
       contacts: [
         {
           name: "Michele",
@@ -175,6 +176,7 @@ createApp({
     selectContact(index) {
       this.currentContact = index;
     },
+
     // Funzione per inviare un messaggio
     sendMessage() {
       // Se non scrivo niente non faccio pushare
@@ -191,6 +193,7 @@ createApp({
       // Dopo 1 secondo mostra il valore della funzione receiveMessage
       setTimeout(this.receiveMessage, 1000);
     },
+
     // Funzione che invia un messaggio "ok" in risposta all'utente
     receiveMessage() {
       const chatMessage = {
@@ -200,6 +203,18 @@ createApp({
       };
       this.contacts[this.currentContact].messages.push(chatMessage);
       console.log("Nuovo array:", this.contacts[this.currentContact].messages);
+    },
+
+    // Funzione ricerca contatti
+    searchContacts() {
+      if (this.searchContact) {
+        return this.contacts.filter((element) => {
+          return element.name.includes(this.searchContact);
+        });
+        // Se non scrivo nel campo di ricerca, mostro tutti i contatti
+      } else {
+        return this.contacts;
+      }
     },
   },
 }).mount("#app");

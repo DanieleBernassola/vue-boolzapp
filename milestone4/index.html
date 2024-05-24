@@ -41,14 +41,14 @@
                 <div class="search-chat show-desk">
                     <div class="container-search d-flex">
                         <i class="fa-solid fa-magnifying-glass"></i>
-                        <input class="search-input" type="search" name="" id="" placeholder="Cerca o inizia una nuova chat">
+                        <input class="search-input" type="search" placeholder="Cerca o inizia una nuova chat" v-model="searchContact">
                     </div>
                 </div>
                 <!-- CHAT RECENTI -->
                 <div class="recent-chats">
                     <ul>
                         <!-- TUTTE LE CHAT -->
-                        <li class="recent-chat d-flex align-center space-around" v-for="(contact, index) in contacts" @click="selectContact(index)">
+                        <li class="recent-chat d-flex align-center space-around" v-for="(contact, index) in searchContacts()" @click="selectContact(index)">
                             <div>
                                 <img class="avatar avatar-chats" :src="contact.avatar" :alt="contact.name">
                             </div>
@@ -106,7 +106,7 @@
                         <i class="fas fa-face-smile"></i>
                     </div>
                     <!-- AL CLICK SU ENTER INVIA IL MESSAGGIO -->
-                    <input type="text" id="write-message" placeholder="Scrivi un messaggio" v-model="newMessage" @keyup.enter="sendMessage">
+                    <input type="text" placeholder="Scrivi un messaggio" v-model="newMessage" @keyup.enter="sendMessage">
                     <div class="show-tab">
                         <i class="fas fa-microphone"></i>
                     </div>
