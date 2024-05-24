@@ -188,6 +188,18 @@ createApp({
       };
       this.contacts[this.currentContact].messages.push(myMessage);
       console.log("Nuovo array:", this.contacts[this.currentContact].messages);
+      // Dopo 1 secondo mostra il valore della funzione receiveMessage
+      setTimeout(this.receiveMessage, 1000);
+    },
+    // Funzione che invia un messaggio "ok" in risposta all'utente
+    receiveMessage() {
+      const chatMessage = {
+        date: "now",
+        message: "ok",
+        status: "received",
+      };
+      this.contacts[this.currentContact].messages.push(chatMessage);
+      console.log("Nuovo array:", this.contacts[this.currentContact].messages);
     },
   },
 }).mount("#app");
