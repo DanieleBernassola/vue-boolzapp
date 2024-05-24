@@ -1,0 +1,32 @@
+/* min-width:992px */
+@media screen and (min-width: 992px) {
+    body{
+        font-size: var(--font-size-desktop);
+    }
+
+    .container{
+        width: 90%;
+        height: 95vh;
+        margin: auto;
+    }
+
+    .col-left{
+        width: 30%;
+    }
+
+    .col-right{
+        width: 70%;
+    }
+
+    .show-desk{
+        display: initial;
+    }
+
+    .notify.show-desk{
+        display: flex;
+    }
+
+    .search-chat.show-desk{
+        display: block;
+    }
+}
