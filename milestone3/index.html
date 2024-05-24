@@ -86,7 +86,9 @@
                 <!-- MESSAGGI -->
                 <div id="messages">
                     <ul>
+                        <!-- CREAZIONE DINAMICA MESSAGGI -->
                         <li v-for="mex in contacts[currentContact].messages">
+                            <!-- ASSEGNAZIONE DINAMICA CLASSI MESSAGGIO -->
                             <div class="message" :class="{'user-message': mex.status === 'sent', 'received-message': mex.status === 'received'}">
                                 <div class="content">
                                     <p class="text-message">
@@ -96,16 +98,6 @@
                                 </div>
                             </div>
                         </li>
-                        <!-- <li>
-                            <div class="message received-message">
-                                <div class="content">
-                                    <p class="text-message">
-                                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. A cupiditate doloribus quasi maiores earum? Nulla deleniti doloribus praesentium ipsa aspernatur ut accusantium maiores vitae facilis. Reprehenderit omnis atque nisi provident!
-                                    </p>
-                                    <p class="time">16:15</p>
-                                </div>
-                            </div>
-                        </li> -->
                     </ul>
                 </div>
                 <!-- FOOTER -->
@@ -113,7 +105,8 @@
                     <div class="show-tab">
                         <i class="fas fa-face-smile"></i>
                     </div>
-                    <input type="text" name="" id="" placeholder="Scrivi un messaggio">
+                    <!-- AL CLICK SU ENTER INVIA IL MESSAGGIO -->
+                    <input type="text" id="write-message" placeholder="Scrivi un messaggio" v-model="newMessage" @keyup.enter="sendMessage">
                     <div class="show-tab">
                         <i class="fas fa-microphone"></i>
                     </div>

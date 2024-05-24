@@ -4,6 +4,7 @@ createApp({
   data() {
     return {
       currentContact: 0,
+      newMessage: null,
       contacts: [
         {
           name: "Michele",
@@ -170,8 +171,23 @@ createApp({
     };
   },
   methods: {
+    // Funzione per selezionare contatto dalla lista
     selectContact(index) {
       this.currentContact = index;
+    },
+    // Funzione per inviare un messaggio
+    sendMessage() {
+      // Se non scrivo niente non faccio pushare
+      if (!this.newMessage) return;
+      console.log("Messaggio inserito:", this.newMessage);
+      // Pusho il messaggio nell'array rispettando la struttura dati
+      const myMessage = {
+        date: "now",
+        message: this.newMessage.trim(),
+        status: "sent",
+      };
+      this.contacts[this.currentContact].messages.push(myMessage);
+      console.log("Nuovo array:", this.contacts[this.currentContact].messages);
     },
   },
 }).mount("#app");
