@@ -5,7 +5,8 @@ createApp({
     return {
       currentContact: 0,
       newMessage: null,
-      searchContact: null,
+      // searchContact per verificare il carattere scritto nel campo di ricerca
+      searchContact: "",
       contacts: [
         {
           name: "Michele",
@@ -203,18 +204,6 @@ createApp({
       };
       this.contacts[this.currentContact].messages.push(chatMessage);
       console.log("Nuovo array:", this.contacts[this.currentContact].messages);
-    },
-
-    // Funzione ricerca contatti
-    searchContacts() {
-      if (this.searchContact) {
-        return this.contacts.filter((element) => {
-          return element.name.includes(this.searchContact);
-        });
-        // Se non scrivo nel campo di ricerca, mostro tutti i contatti
-      } else {
-        return this.contacts;
-      }
     },
   },
 }).mount("#app");

@@ -68,6 +68,7 @@ body {
 }
 
 .recent-chat {
+  cursor: pointer;
   padding: 0.5rem 0;
   border-bottom: 1px solid #f0f0f0;
 }

@@ -48,7 +48,8 @@
                 <div class="recent-chats">
                     <ul>
                         <!-- TUTTE LE CHAT -->
-                        <li class="recent-chat d-flex align-center space-around" v-for="(contact, index) in searchContacts()" @click="selectContact(index)">
+                        <!-- UTILIZZANDO IL V-SHOW MOSTRO SOLO I CONTATTI CHE CONTENGONO IL CARATTERE DIGITATO -->
+                        <li class="recent-chat d-flex align-center space-around" v-for="(contact, index) in contacts" v-show="contact.name.toLowerCase().includes(searchContact.toLowerCase())" @click="selectContact(index)">
                             <div>
                                 <img class="avatar avatar-chats" :src="contact.avatar" :alt="contact.name">
                             </div>
